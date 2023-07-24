@@ -1,0 +1,14 @@
+import datetime
+
+def escribir_bitacora(registro):
+    fecha_actual = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    registro = f"{fecha_actual}: {registro}\n"
+    with open("bitacora.txt", "a") as archivo:
+        archivo.write(registro)
+
+# Ejemplo de uso
+while True:
+    entrada = input("Escribe algo para agregar a la bitácora (o 'salir' para terminar): ")
+    if entrada.lower() == "salir":
+        break
+    escribir_bitacora(entrada)
